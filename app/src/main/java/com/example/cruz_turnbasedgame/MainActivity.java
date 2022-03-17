@@ -237,10 +237,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 // set actual increase
                 heroMinDamage = 250;
                 heroMaxDamage = 700;
+                heroDamageIncrease = true ;
+
                 txtHeroDamage.setText(String.valueOf(String.valueOf(heroMinDamage) + " DMG to\n" + String.valueOf(heroMaxDamage) + " DMG")) ;
                 txtGameLog.setText("Hero has increased their\nattack damage!");
                 btnNextTurn.setText("Enemy's turn") ;
-                heroDamageIncrease = true ;
+
 
                 //Disable Button
                 btnHeal.setEnabled(false) ;
@@ -263,14 +265,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 enemyHP = 3000 ;
                 turnCount = 0 ;
                 heroDamageIncrease = false ;
-
                 heroMinDamage = 150;
                 heroMaxDamage = 350;
-                txtHeroDamage.setText(String.valueOf(String.valueOf(heroMinDamage) + " DMG to\n" + String.valueOf(heroMaxDamage) + " DMG"));
 
+                txtHeroDamage.setText(String.valueOf(String.valueOf(heroMinDamage) + " DMG to\n" + String.valueOf(heroMaxDamage) + " DMG"));
                 txtHeroHP.setText(String.valueOf(heroHP + "/1000 HP")) ;
                 txtEnemyHP.setText(String.valueOf(enemyHP + "/3000 HP")) ;
-
                 txtGameLog.setText(String.valueOf("Round Begins!")) ;
                 txtTurnCount.setText("Turn #" + String.valueOf(turnCount)) ;
 
