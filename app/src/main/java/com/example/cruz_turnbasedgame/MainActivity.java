@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -16,6 +17,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //creating objects
     TextView txtHeroHP , txtHeroDamage , txtEnemyHP , txtEnemyDamage , txtTurnCount , txtGameLog;
     Button btnNextTurn , btnHeal , btnIncreaseDMG , btnNewGame ;
+    //imageview
+    ImageView imgHero , imgEnemy;
 
     //Hero Stats
     int heroHP = 1000 ;
@@ -63,6 +66,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnIncreaseDMG = findViewById(R.id.btnIncreaseDMG) ;
         btnNewGame = findViewById(R.id.btnNewGame) ;
 
+        //images
+        imgHero = findViewById(R.id.imgHero);
+        imgEnemy = findViewById(R.id.imgEnemy) ;
+
         // set the text views upon startup
         txtHeroHP.setText(String.valueOf(heroHP + "/1000 HP")) ;
         txtHeroDamage.setText(String.valueOf(String.valueOf(heroMinDamage) + " DMG to\n" + String.valueOf(heroMaxDamage) + " DMG")) ;
@@ -93,6 +100,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     //for attacking
                     enemyHP = enemyHP - heroDamage ;
                     turnCount++ ;
+
+                    //change image view of enemy
+                    imgEnemy.setImageResource(R.drawable.enemy_hurt);
+                    imgHero.setImageResource(R.drawable.hero_regular);
 
                     txtEnemyHP.setText(String.valueOf(enemyHP + "/3000 HP")) ;
                     txtTurnCount.setText("Turn #" + String.valueOf(turnCount)) ;
@@ -162,6 +173,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     btnHeal.setEnabled(true) ;
                     btnIncreaseDMG.setEnabled(true) ;
 
+                    //change image view of hero
+                    imgHero.setImageResource(R.drawable.hero_hurt);
+                    imgEnemy.setImageResource(R.drawable.enemy_regular);
 
                     //Critical hit indicator
                     if (enemyDamage >= 200) {
@@ -214,6 +228,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 btnIncreaseDMG.setEnabled(false) ;
                 btnNewGame.setEnabled(false);
 
+                //nobody's getting hurt
+                imgEnemy.setImageResource(R.drawable.enemy_regular);
+                imgHero.setImageResource(R.drawable.hero_regular);
 
                 //Full recovery indicator
                 if (heroHP == 1000) {
@@ -242,6 +259,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 txtGameLog.setText("Hero has increased their\nattack damage!");
                 btnNextTurn.setText("Enemy's turn") ;
 
+                //nobody's getting hurt
+                imgEnemy.setImageResource(R.drawable.enemy_regular);
+                imgHero.setImageResource(R.drawable.hero_regular);
 
                 //Disable Button
                 btnHeal.setEnabled(false) ;
@@ -272,6 +292,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 txtEnemyHP.setText(String.valueOf(enemyHP + "/3000 HP")) ;
                 txtGameLog.setText(String.valueOf("Round Begins!")) ;
                 txtTurnCount.setText("Turn #" + String.valueOf(turnCount)) ;
+
+                //nobody's getting hurt
+                imgEnemy.setImageResource(R.drawable.enemy_regular);
+                imgHero.setImageResource(R.drawable.hero_regular);
 
                 btnHeal.setEnabled(true) ;
                 btnIncreaseDMG.setEnabled(true) ;
