@@ -94,16 +94,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     //for attacking
                     enemyHP = enemyHP - heroDamage ;
                     turnCount++ ;
+
                     txtEnemyHP.setText(String.valueOf(enemyHP + "/3000 HP")) ;
                     txtTurnCount.setText("Turn #" + String.valueOf(turnCount)) ;
                     txtGameLog.setText("Hero deals " + String.valueOf(heroDamage) + "\ndamage to the enemy." ) ;
                     btnNextTurn.setText("Enemy's turn") ;
 
-                    btnNewGame.setEnabled(false);
-
                     //Disable the Heal and attack increase button
                     btnHeal.setEnabled(false) ;
                     btnIncreaseDMG.setEnabled(false) ;
+                    btnNewGame.setEnabled(false);
+
+                    //Critical Hit condition
+                    if (heroDamageIncrease == false && heroDamage >=300) {
+                        txtGameLog.setText(String.valueOf("Hero deals " + String.valueOf(heroDamage) + " damage \nto the enemy. A critical hit!")) ;
+                    }
+
+                    else if (heroDamageIncrease == true && heroDamage >= 650){
+                        txtGameLog.setText(String.valueOf("Hero deals " + String.valueOf(heroDamage) + " damage \nto the enemy. A critical hit!")) ;
+                    }
+
+                    else {}
+
+
+                    //Disabling Attack Increase after attacking and setting it back to regular damage range
+                   if (heroDamageIncrease == true) {
+                       heroDamageIncrease = false;
+                       heroMinDamage = 150;
+                       heroMaxDamage = 350;
+                       txtHeroDamage.setText(String.valueOf(String.valueOf(heroMinDamage) + " DMG to\n" + String.valueOf(heroMaxDamage) + " DMG"));
+                   }
+
 
                     //Win condition
                     if (enemyHP <= 0) {
@@ -150,6 +171,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     }
 
+                    //Disabled attack increase button if attack is already boosted
+                    if (heroDamageIncrease == true) {
+                        btnIncreaseDMG.setEnabled(false);
+                    }
+
                     else {}
 
                     //Lose Condition
@@ -179,13 +205,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 txtHeroHP.setText(String.valueOf(heroHP + "/1000 HP")) ;
 
                 txtGameLog.setText("Hero heals " + heroHeal + " HP.");
+                btnNextTurn.setText("Enemy's turn") ;
 
                 turnCount++ ;
+                txtTurnCount.setText("Turn #" + String.valueOf(turnCount)) ;
 
                 //Disable Button
                 btnHeal.setEnabled(false) ;
                 btnIncreaseDMG.setEnabled(false) ;
                 btnNewGame.setEnabled(false);
+
 
                 //Full recovery indicator
                 if (heroHP == 1000) {
@@ -205,7 +234,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //ATTACK INCREASE BUTTON
         switch(v.getId()) {
             case R.id.btnIncreaseDMG:
+                // set actual increase
+                heroMinDamage = 250;
+                heroMaxDamage = 700;
+                txtHeroDamage.setText(String.valueOf(String.valueOf(heroMinDamage) + " DMG to\n" + String.valueOf(heroMaxDamage) + " DMG")) ;
+                txtGameLog.setText("Hero has increased their\nattack damage!");
+                btnNextTurn.setText("Enemy's turn") ;
+                heroDamageIncrease = true ;
 
+                //Disable Button
+                btnHeal.setEnabled(false) ;
+                btnIncreaseDMG.setEnabled(false) ;
+                btnNewGame.setEnabled(false);
+
+                turnCount++ ;
+                txtTurnCount.setText("Turn #" + String.valueOf(turnCount)) ;
 
         }
 
@@ -213,12 +256,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //RETRY BUTTON
         switch(v.getId()) {
             case R.id.btnNewGame:
-
+                //resets everything
                 btnNextTurn.setText("First turn") ;
 
                 heroHP = 1000 ;
                 enemyHP = 3000 ;
                 turnCount = 0 ;
+                heroDamageIncrease = false ;
+
+                heroMinDamage = 150;
+                heroMaxDamage = 350;
+                txtHeroDamage.setText(String.valueOf(String.valueOf(heroMinDamage) + " DMG to\n" + String.valueOf(heroMaxDamage) + " DMG"));
 
                 txtHeroHP.setText(String.valueOf(heroHP + "/1000 HP")) ;
                 txtEnemyHP.setText(String.valueOf(enemyHP + "/3000 HP")) ;
