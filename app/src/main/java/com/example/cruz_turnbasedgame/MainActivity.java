@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 }
 
-                /*Enemy's turn*/
+                //Enemy's turn
                 else if (turnCount % 2 == 1) {
 
                     enemyDamage = randomizer.nextInt(enemyMaxDamage - enemyMinDamage) + enemyMinDamage ;
