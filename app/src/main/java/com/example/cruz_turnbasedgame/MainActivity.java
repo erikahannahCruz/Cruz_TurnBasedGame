@@ -85,7 +85,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch(v.getId()) {
             case R.id.btnNextTurn:
 
-
                 /*hero's turn*/
                 if(turnCount % 2 == 0) {
 
@@ -105,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     btnIncreaseDMG.setEnabled(false) ;
                     btnNewGame.setEnabled(false);
 
-                    //Critical Hit condition
+                    //Critical Hit condition message
                     if (heroDamageIncrease == false && heroDamage >=300) {
                         txtGameLog.setText(String.valueOf("Hero deals " + String.valueOf(heroDamage) + " damage \nto the enemy. A critical hit!")) ;
                     }
