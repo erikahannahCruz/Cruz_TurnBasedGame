@@ -211,7 +211,7 @@
         android:text="New Game"
         android:textColor="#ffffff"
         android:enabled="false"
-        android:backgroundTint="#104e2f"
+        android:backgroundTint="#104e24"
         app:layout_constraintBottom_toBottomOf="@+id/btnNextTurn"
         app:layout_constraintEnd_toEndOf="@+id/imgBtnLog"
         app:layout_constraintStart_toEndOf="@+id/btnNextTurn"
