@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -29,9 +30,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        //stuff changed to hide title banner upon startup
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+            getSupportActionBar().hide();
+            this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            //HOPE THIS WORKS OH MY GOD
+
+        //initially this was just under the super.OnCreate method
         setContentView(R.layout.activity_main);
-
-
 
         //set the xml stuff to the stuff here
         txtHeroHP = findViewById(R.id.txtHeroHP) ;
@@ -43,11 +51,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnNextTurn = findViewById(R.id.btnNextTurn) ;
 
         // set the text views upon startup
-        txtHeroHP.setText(String.valueOf(heroHP)) ;
-        txtHeroDamage.setText(String.valueOf(heroDamage)) ;
-        txtEnemyHP.setText(String.valueOf(enemyHP)) ;
-        txtEnemyDamage.setText(String.valueOf(enemyDamage)) ;
-        txtTurnCount.setText(String.valueOf(turnCount)) ;
+        txtHeroHP.setText(String.valueOf(heroHP + "/1000")) ;
+        txtHeroDamage.setText(String.valueOf(heroDamage + " DMG")) ;
+        txtEnemyHP.setText(String.valueOf(enemyHP + "/3000")) ;
+        txtEnemyDamage.setText(String.valueOf(enemyDamage + " DMG")) ;
+        txtTurnCount.setText("Turn #" + String.valueOf(turnCount)) ;
 
         // setting listener for button
         btnNextTurn.setOnClickListener(this) ;
@@ -65,20 +73,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     //for attacking
                     enemyHP = enemyHP - heroDamage ;
                     turnCount++ ;
-                    txtEnemyHP.setText(String.valueOf(enemyHP)) ;
+                    txtEnemyHP.setText(String.valueOf(enemyHP + "/3000")) ;
                     txtTurnCount.setText("Turn #" + String.valueOf(turnCount)) ;
-                    txtGameLog.setText("Hero deals " + String.valueOf(heroDamage) + " damage to the enemy." ) ;
+                    txtGameLog.setText("Hero deals " + String.valueOf(heroDamage) + "\ndamage to the enemy." ) ;
                     btnNextTurn.setText("Enemy's turn") ;
 
                     //Win condition
                     if (enemyHP <= 0) {
-                        txtGameLog.setText("Hero deals " + String.valueOf(heroDamage) + " damage to the enemy. You Win!" ) ;
+                        txtGameLog.setText("Hero deals " + String.valueOf(heroDamage) + "\ndamage to the enemy. You Win!" ) ;
                         btnNextTurn.setText("Retry?") ;
                         //Reset variables
                         heroHP = 1000 ;
                         enemyHP = 3000 ;
                         turnCount = 0 ;
-                        //lock game ADD KA PA NG CODE
+                        //lock buttons ADD KA PA NG CODE
                     }
                     else {}
 
@@ -89,20 +97,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     //during attacking
                     heroHP = heroHP - enemyDamage ;
                     turnCount++ ;
-                    txtHeroHP.setText(String.valueOf(heroHP)) ;
+                    txtHeroHP.setText(String.valueOf(heroHP + "/1000")) ;
                     txtTurnCount.setText("Turn #" + String.valueOf(turnCount)) ;
-                    txtGameLog.setText(String.valueOf("Enemy deals " + String.valueOf(enemyDamage) + " damage to the hero.")) ;
+                    txtGameLog.setText(String.valueOf("Enemy deals " + String.valueOf(enemyDamage) + "\ndamage to the hero.")) ;
                     btnNextTurn.setText("Hero's turn") ;
 
                     //Lose Condition
                     if (heroHP <= 0) {
-                        txtGameLog.setText(String.valueOf("Enemy deals " + String.valueOf(enemyDamage) + " damage to the hero. You Lose!")) ;
+                        txtGameLog.setText(String.valueOf("Enemy deals " + String.valueOf(enemyDamage) + "\ndamage to the hero. You Lose!")) ;
                         btnNextTurn.setText("Retry?") ;
                         //Reset variables
                         heroHP = 1000 ;
                         enemyHP = 3000 ;
                         turnCount = 0 ;
-                        //lock game ADD KA PA NG CODE
+                        //lock buttons ADD KA PA NG CODE
                     }
                     else {}
                 }

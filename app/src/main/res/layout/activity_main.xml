@@ -24,7 +24,7 @@
         android:id="@+id/imageView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="204dp"
+        android:layout_marginBottom="212dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -47,7 +47,7 @@
         android:id="@+id/imgBtnLog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="276dp"
+        android:layout_marginTop="264dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,18 +60,19 @@
         android:layout_height="wrap_content"
         android:text="First Turn"
         android:textColor="#ffffff"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBtnLog"
         app:layout_constraintEnd_toEndOf="@+id/imgBtnLog"
         app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="@+id/imgBtnLog"
         app:layout_constraintTop_toTopOf="@+id/imgBtnLog"
-        app:layout_constraintVertical_bias="0.53" />
+        app:layout_constraintVertical_bias="0.518" />
 
     <TextView
         android:id="@+id/txtHeroDamage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:gravity="left"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="@+id/imageView9"
         app:layout_constraintEnd_toEndOf="@+id/txtHeroHP"
@@ -85,6 +86,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:gravity="left"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="@+id/imageView9"
         app:layout_constraintEnd_toEndOf="parent"
@@ -104,8 +106,8 @@
         app:layout_constraintEnd_toEndOf="@+id/txtGameLog"
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="@+id/txtGameLog"
-        app:layout_constraintTop_toBottomOf="@+id/txtGameLog"
-        app:layout_constraintVertical_bias="0.419" />
+        app:layout_constraintTop_toTopOf="@+id/imageView9"
+        app:layout_constraintVertical_bias="0.647" />
 
     <TextView
         android:id="@+id/txtEnemyName"
@@ -137,10 +139,11 @@
 
     <TextView
         android:id="@+id/txtEnemyHP"
-        android:layout_width="65dp"
-        android:layout_height="22dp"
+        android:layout_width="78dp"
+        android:layout_height="23dp"
         android:text="TextView"
         android:textColor="#ffffff"
+        android:gravity="right"
         app:layout_constraintBottom_toBottomOf="@+id/imageView9"
         app:layout_constraintEnd_toStartOf="@+id/txtEnemyName"
         app:layout_constraintHorizontal_bias="0.957"
@@ -153,6 +156,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:gravity="right"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="@+id/imageView9"
         app:layout_constraintEnd_toEndOf="@+id/txtEnemyHP"
@@ -165,6 +169,7 @@
         android:id="@+id/txtGameLog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="Round begins!"
         android:textColor="#ffffff"
         android:textSize="35px"
