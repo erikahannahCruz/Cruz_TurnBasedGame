@@ -58,21 +58,20 @@
         android:id="@+id/btnNextTurn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#800869"
         android:text="First Turn"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="@+id/imgBtnLog"
         app:layout_constraintEnd_toEndOf="@+id/imgBtnLog"
-        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="@+id/imgBtnLog"
-        app:layout_constraintTop_toTopOf="@+id/imgBtnLog"
-        app:layout_constraintVertical_bias="0.518" />
+        app:layout_constraintTop_toTopOf="@+id/imgBtnLog" />
 
     <TextView
         android:id="@+id/txtHeroDamage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         android:gravity="left"
+        android:text="TextView"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="@+id/imageView9"
         app:layout_constraintEnd_toEndOf="@+id/txtHeroHP"
@@ -83,17 +82,17 @@
 
     <TextView
         android:id="@+id/txtHeroHP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_width="110dp"
+        android:layout_height="18dp"
         android:gravity="left"
+        android:text="TextView"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="@+id/imageView9"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintHorizontal_bias="0.026"
         app:layout_constraintStart_toEndOf="@+id/txtHeroName"
         app:layout_constraintTop_toTopOf="@+id/imageView9"
-        app:layout_constraintVertical_bias="0.347" />
+        app:layout_constraintVertical_bias="0.324" />
 
     <TextView
         android:id="@+id/txtTurnCount"
@@ -139,24 +138,24 @@
 
     <TextView
         android:id="@+id/txtEnemyHP"
-        android:layout_width="78dp"
-        android:layout_height="23dp"
+        android:layout_width="101dp"
+        android:layout_height="17dp"
+        android:gravity="right"
         android:text="TextView"
         android:textColor="#ffffff"
-        android:gravity="right"
         app:layout_constraintBottom_toBottomOf="@+id/imageView9"
         app:layout_constraintEnd_toStartOf="@+id/txtEnemyName"
-        app:layout_constraintHorizontal_bias="0.957"
+        app:layout_constraintHorizontal_bias="0.976"
         app:layout_constraintStart_toStartOf="@+id/imageView9"
         app:layout_constraintTop_toTopOf="@+id/imageView9"
-        app:layout_constraintVertical_bias="0.331" />
+        app:layout_constraintVertical_bias="0.333" />
 
     <TextView
         android:id="@+id/txtEnemyDamage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         android:gravity="right"
+        android:text="TextView"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="@+id/imageView9"
         app:layout_constraintEnd_toEndOf="@+id/txtEnemyHP"
@@ -178,5 +177,44 @@
         app:layout_constraintStart_toStartOf="@+id/imageView9"
         app:layout_constraintTop_toTopOf="@+id/imageView9"
         app:layout_constraintVertical_bias="0.345" />
+
+    <Button
+        android:id="@+id/btnHeal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#af1133"
+        android:enabled="true"
+        android:text="Heal Hero"
+        app:layout_constraintBottom_toBottomOf="@+id/btnIncreaseDMG"
+        app:layout_constraintEnd_toStartOf="@+id/btnIncreaseDMG"
+        app:layout_constraintStart_toStartOf="@+id/imgBtnLog"
+        app:layout_constraintTop_toTopOf="@+id/btnIncreaseDMG" />
+
+    <Button
+        android:id="@+id/btnIncreaseDMG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#af1133"
+        android:enabled="true"
+        android:text="Increase DMG"
+        app:layout_constraintBottom_toBottomOf="@+id/btnNextTurn"
+        app:layout_constraintEnd_toStartOf="@+id/btnNextTurn"
+        app:layout_constraintHorizontal_bias="0.905"
+        app:layout_constraintStart_toStartOf="@+id/imgBtnLog"
+        app:layout_constraintTop_toTopOf="@+id/btnNextTurn"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnNewGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Game"
+        android:textColor="#ffffff"
+        android:enabled="false"
+        android:backgroundTint="#104e2f"
+        app:layout_constraintBottom_toBottomOf="@+id/btnNextTurn"
+        app:layout_constraintEnd_toEndOf="@+id/imgBtnLog"
+        app:layout_constraintStart_toEndOf="@+id/btnNextTurn"
+        app:layout_constraintTop_toTopOf="@+id/btnNextTurn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
